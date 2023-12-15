@@ -1,0 +1,25 @@
+﻿@model Lilya.Models.Process
+@{
+    ViewData["Title"] = "Create Process";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="MetricName" class="control-label"></label>
+        <input asp-for="MetricName" class="form-control" />
+        <span asp-validation-for="MetricName" class="text-danger"></span>
+    </div>
+
+    <!-- Другие поля процесса -->
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

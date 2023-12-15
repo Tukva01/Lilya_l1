@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Lilya.Models.Process>
+
+@{
+    ViewData["Title"] = "Processes";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Index" method="get">
+    <input type="text" name="searchName" />
+    <input type="submit" value="Search" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Metric Name</th>
+            <th>Metric Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var process in Model)
+        {
+            <tr>
+                <td>@process.Name</td>
+                <td>@(process.Author?.FullName ?? "No Author")</td>
+                <td>@process.MetricName</td>
+                <td>@process.MetricDescription</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")">Create New Process</a>
